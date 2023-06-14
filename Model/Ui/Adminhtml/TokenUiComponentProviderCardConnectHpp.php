@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Swarming\SubscribeProAdyen\Model\Ui\Adminhtml;
+namespace Rightpoint\SubscriptionsExternalVault\Model\Ui\Adminhtml;
 
-use Adyen\Payment\Helper\Data;
+use Brsw\CardConnect\Helper\Data;
 use Magento\Framework\View\Element\Template;
 use Magento\Vault\Api\Data\PaymentTokenInterface;
 use Magento\Vault\Model\Ui\TokenUiComponentInterfaceFactory;
 use Magento\Vault\Model\Ui\TokenUiComponentProviderInterface;
 
-class TokenUiComponentProviderApplePay implements TokenUiComponentProviderInterface
+class TokenUiComponentProviderCardConnectHpp implements TokenUiComponentProviderInterface
 {
     /**
      * @var TokenUiComponentInterfaceFactory
@@ -20,20 +20,20 @@ class TokenUiComponentProviderApplePay implements TokenUiComponentProviderInterf
     /**
      * @var Data
      */
-    private $adyenHelper;
+    private $cardConnectHelper;
 
     /**
      * TokenUiComponentProvider constructor.
      *
      * @param TokenUiComponentInterfaceFactory $componentFactory
-     * @param Data $adyenHelper
+     * @param Data $cardConnectHelper
      */
     public function __construct(
         TokenUiComponentInterfaceFactory $componentFactory,
-        Data $adyenHelper
+        Data $cardConnectHelper
     ) {
         $this->componentFactory = $componentFactory;
-        $this->adyenHelper = $adyenHelper;
+        $this->cardConnectHelper = $cardConnectHelper;
     }
 
     /**
@@ -42,14 +42,14 @@ class TokenUiComponentProviderApplePay implements TokenUiComponentProviderInterf
     public function getComponentForToken(PaymentTokenInterface $paymentToken)
     {
         $details = json_decode($paymentToken->getTokenDetails() ?: '{}', true);
-        $details['icon'] = $this->adyenHelper->getVariantIcon($details['type']);
+        $details['icon'] = $this->cardConnectHelper->getVariantIcon($details['type']);
         $component = $this->componentFactory->create(
             [
                 'config' => [
-                    'code' => 'adyen_apple_pay_vault',
+                    'code' => 'cardConnect_hpp_vault',
                     TokenUiComponentProviderInterface::COMPONENT_DETAILS => $details,
                     TokenUiComponentProviderInterface::COMPONENT_PUBLIC_HASH => $paymentToken->getPublicHash(),
-                    'template' => 'Adyen_Payment::form/vault.phtml'
+                    'template' => 'CardConnect_Payment::form/vault.phtml'
                 ],
                 'name' => Template::class
             ]

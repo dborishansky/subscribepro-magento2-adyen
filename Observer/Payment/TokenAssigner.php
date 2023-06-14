@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Swarming\SubscribeProAdyen\Observer\Payment;
+namespace Rightpoint\SubscriptionsExternalVault\Observer\Payment;
 
-use Adyen\Payment\Model\Ui\AdyenCcConfigProvider;
+use Brsw\CardConnect\Model\Ui\CardConnectCcConfigProvider;
 use Magento\Framework\Event\Observer;
 use Magento\Quote\Api\Data\PaymentInterface;
 use Magento\Quote\Model\Quote\Payment as QuotePayment;
@@ -86,7 +86,7 @@ class TokenAssigner extends \Magento\Payment\Observer\AbstractDataAssignObserver
     {
         return $this->paymentTokenManagement->getByGatewayToken(
             $paymentMethodToken,
-            AdyenCcConfigProvider::CODE,
+            CardConnectCcConfigProvider::CODE,
             $customerId
         );
     }

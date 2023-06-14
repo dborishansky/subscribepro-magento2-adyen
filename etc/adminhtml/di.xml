@@ -3,9 +3,7 @@
     <type name="Magento\Vault\Model\Ui\Adminhtml\TokensConfigProvider">
         <arguments>
             <argument name="tokenUiComponentProviders" xsi:type="array">
-                <item name="adyen_apple_pay" xsi:type="object">Swarming\SubscribeProAdyen\Model\Ui\Adminhtml\TokenUiComponentProviderApplePay</item>
-                <item name="adyen_google_pay" xsi:type="object">Swarming\SubscribeProAdyen\Model\Ui\Adminhtml\TokenUiComponentProviderGooglePay</item>
-                <item name="adyen_hpp" xsi:type="object">Swarming\SubscribeProAdyen\Model\Ui\Adminhtml\TokenUiComponentProviderAdyenHpp</item>
+                <item name="cardconnect_hpp" xsi:type="object">Rightpoint\SubscriptionsExternalVault\Model\Ui\Adminhtml\TokenUiComponentProviderCardConnectHpp</item>
             </argument>
         </arguments>
     </type>

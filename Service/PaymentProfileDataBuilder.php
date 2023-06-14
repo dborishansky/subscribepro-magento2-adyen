@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Swarming\SubscribeProAdyen\Service;
+namespace Rightpoint\SubscriptionsExternalVault\Service;
 
 use Magento\Vault\Api\Data\PaymentTokenInterface;
 use SubscribePro\Service\PaymentProfile\PaymentProfileInterface;
@@ -11,7 +11,7 @@ use Swarming\SubscribePro\Service\Payment\PaymentProfileDataBuilderInterface;
 class PaymentProfileDataBuilder implements PaymentProfileDataBuilderInterface
 {
     /**
-     * Some cc types in Adyen should be translated into their Subscribe Pro analogues
+     * Some cc types in CardConnect should be translated into their Subscribe Pro analogues
      *
      * @var array
      */
@@ -52,11 +52,11 @@ class PaymentProfileDataBuilder implements PaymentProfileDataBuilderInterface
     }
 
     /**
-     * @param string $adyenValue
+     * @param string $cardConnectValue
      * @return string
      */
-    private function translateCCType(string $adyenValue): string
+    private function translateCCType(string $cardConnectValue): string
     {
-        return $this->translationTable[$adyenValue] ?? $adyenValue;
+        return $this->translationTable[$cardConnectValue] ?? $cardConnectValue;
     }
 }

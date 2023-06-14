@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-    <event name="payment_method_assign_data_adyen_cc">
-        <observer name="subscribepro_adyen_cc_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\AdyenCcDataAssignObserver" />
+    <event name="payment_method_assign_data_cardconnect_cc">
+        <observer name="subscribepro_cardconnect_cc_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\CardConnectCcDataAssignObserver" />
     </event>
-    <event name="payment_method_assign_data_adyen_google_pay">
-        <observer name="subscribepro_adyen_google_pay_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\AdyenCcDataAssignObserver" />
+    <event name="payment_method_assign_data_cardconnect_google_pay">
+        <observer name="subscribepro_cardconnect_google_pay_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\CardConnectCcDataAssignObserver" />
     </event>
-    <event name="payment_method_assign_data_adyen_apple_pay">
-        <observer name="subscribepro_adyen_apple_pay_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\AdyenCcDataAssignObserver" />
+    <event name="payment_method_assign_data_cardconnect_apple_pay">
+        <observer name="subscribepro_cardconnect_apple_pay_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\CardConnectCcDataAssignObserver" />
     </event>
-    <event name="payment_method_assign_data_adyen_hpp">
-        <observer name="subscribepro_adyen_hpp_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\AdyenCcDataAssignObserver" />
+    <event name="payment_method_assign_data_cardconnect_hpp">
+        <observer name="subscribepro_cardconnect_hpp_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\CardConnectCcDataAssignObserver" />
     </event>
     <!--These are necessary to show the stored cards during admin order creation-->
-    <event name="payment_method_assign_data_vault_adyen_cc">
-        <observer name="subscribepro_vault_adyen_cc_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\Payment\TokenAssigner" />
+    <event name="payment_method_assign_data_vault_cardconnect_cc">
+        <observer name="subscribepro_vault_cardconnect_cc_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\Payment\TokenAssigner" />
     </event>
-    <event name="payment_method_assign_data_vault_adyen_hpp">
-        <observer name="subscribepro_vault_adyen_cc_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\Payment\TokenAssigner" />
+    <event name="payment_method_assign_data_vault_cardconnect_hpp">
+        <observer name="subscribepro_vault_cardconnect_cc_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\Payment\TokenAssigner" />
     </event>
-    <event name="payment_method_assign_data_vault_adyen_google_pay">
-        <observer name="subscribepro_vault_adyen_cc_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\Payment\GooglePayTokenAssigner" />
+    <event name="payment_method_assign_data_vault_cardconnect_google_pay">
+        <observer name="subscribepro_vault_cardconnect_cc_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\Payment\GooglePayTokenAssigner" />
     </event>
-    <event name="payment_method_assign_data_vault_adyen_apple_pay">
-        <observer name="subscribepro_vault_adyen_cc_gateway_data_assign" instance="Swarming\SubscribeProAdyen\Observer\Payment\ApplePayTokenAssigner" />
+    <event name="payment_method_assign_data_vault_cardconnect_apple_pay">
+        <observer name="subscribepro_vault_cardconnect_cc_gateway_data_assign" instance="Rightpoint\SubscriptionsExternalVault\Observer\Payment\ApplePayTokenAssigner" />
     </event>
 </config>

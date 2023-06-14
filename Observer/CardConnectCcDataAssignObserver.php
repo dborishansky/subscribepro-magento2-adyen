@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Swarming\SubscribeProAdyen\Observer;
+namespace Rightpoint\SubscriptionsExternalVault\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Payment\Observer\AbstractDataAssignObserver;
 use Magento\Quote\Api\Data\PaymentInterface;
-use Adyen\Payment\Observer\AdyenCcDataAssignObserver as AdyenAssignObserver;
+use Brsw\CardConnect\Observer\CardConnectCcDataAssignObserver as CardConnectAssignObserver;
 use Magento\Vault\Api\Data\PaymentTokenInterface;
 use Magento\Vault\Model\Ui\VaultConfigProvider;
 
-class AdyenCcDataAssignObserver extends AbstractDataAssignObserver
+class CardConnectCcDataAssignObserver extends AbstractDataAssignObserver
 {
     /**
      * @var \Swarming\SubscribePro\Model\Config\General
@@ -24,19 +24,19 @@ class AdyenCcDataAssignObserver extends AbstractDataAssignObserver
     private $quoteHelper;
 
     /**
-     * @var \Adyen\Payment\Helper\StateData
+     * @var \Brsw\CardConnect\Helper\StateData
      */
     private $stateData;
 
     /**
      * @param \Swarming\SubscribePro\Model\Config\General $generalConfig
      * @param \Swarming\SubscribePro\Helper\Quote         $quoteHelper
-     * @param \Adyen\Payment\Helper\StateData             $stateData
+     * @param \Brsw\CardConnect\Helper\StateData             $stateData
      */
     public function __construct(
         \Swarming\SubscribePro\Model\Config\General $generalConfig,
         \Swarming\SubscribePro\Helper\Quote $quoteHelper,
-        \Adyen\Payment\Helper\StateData $stateData
+        \Brsw\CardConnect\Helper\StateData $stateData
     ) {
         $this->generalConfig = $generalConfig;
         $this->quoteHelper = $quoteHelper;
@@ -64,12 +64,12 @@ class AdyenCcDataAssignObserver extends AbstractDataAssignObserver
             return;
         }
 
-        // This works on Adyen 7.x
+        // This works on CardConnect 7.x
         $stateData = $this->stateData->getStateData((int)$paymentInfo->getData('quote_id'));
         $stateData['storePaymentMethod'] = true;
         $this->stateData->setStateData($stateData, (int)$paymentInfo->getData('quote_id'));
 
-        $paymentInfo->setAdditionalInformation(AdyenAssignObserver::STORE_CC, true);
+        $paymentInfo->setAdditionalInformation(CardConnectAssignObserver::STORE_CC, true);
         $paymentInfo->setAdditionalInformation(VaultConfigProvider::IS_ACTIVE_CODE, true);
 
         $additionalData[VaultConfigProvider::IS_ACTIVE_CODE] = true;

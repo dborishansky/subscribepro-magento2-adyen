@@ -3,20 +3,20 @@
     <type name="Swarming\SubscribePro\Model\Config\Source\ThirdPartyPaymentMethod">
         <arguments>
             <argument name="supportedMethods" xsi:type="array">
-                <item name="adyen_cc" xsi:type="string">adyen_cc</item>
-                <item name="adyen_hpp" xsi:type="string">adyen_hpp</item>
-                <item name="adyen_apple_pay" xsi:type="string">adyen_apple_pay</item>
-                <item name="adyen_google_pay" xsi:type="string">adyen_google_pay</item>
+                <item name="cardconnect_cc" xsi:type="string">cardconnect_cc</item>
+                <item name="cardconnect_hpp" xsi:type="string">cardconnect_hpp</item>
+                <item name="cardconnect_apple_pay" xsi:type="string">cardconnect_apple_pay</item>
+                <item name="cardconnect_google_pay" xsi:type="string">cardconnect_google_pay</item>
             </argument>
         </arguments>
     </type>
     <type name="Swarming\SubscribePro\Service\Payment\PaymentProfileDataBuilderPool">
         <arguments>
             <argument name="paymentProfileDataBuilders" xsi:type="array">
-                <item name="adyen_cc" xsi:type="object">Swarming\SubscribeProAdyen\Service\PaymentProfileDataBuilder</item>
-                <item name="adyen_hpp" xsi:type="object">Swarming\SubscribeProAdyen\Service\PaymentProfileDataBuilder</item>
-                <item name="adyen_apple_pay" xsi:type="object">Swarming\SubscribeProAdyen\Service\PaymentProfileDataBuilder</item>
-                <item name="adyen_google_pay" xsi:type="object">Swarming\SubscribeProAdyen\Service\PaymentProfileDataBuilder</item>
+                <item name="cardconnect_cc" xsi:type="object">Rightpoint\SubscriptionsExternalVault\Service\PaymentProfileDataBuilder</item>
+                <item name="cardconnect_hpp" xsi:type="object">Rightpoint\SubscriptionsExternalVault\Service\PaymentProfileDataBuilder</item>
+                <item name="cardconnect_apple_pay" xsi:type="object">Rightpoint\SubscriptionsExternalVault\Service\PaymentProfileDataBuilder</item>
+                <item name="cardconnect_google_pay" xsi:type="object">Rightpoint\SubscriptionsExternalVault\Service\PaymentProfileDataBuilder</item>
             </argument>
         </arguments>
     </type>

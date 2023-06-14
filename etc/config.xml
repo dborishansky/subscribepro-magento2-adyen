@@ -3,22 +3,22 @@
     <default>
         <swarming_subscribepro>
             <third_party_payment>
-                <adyen_cc>adyen_cc_vault</adyen_cc>
-                <adyen_hpp>adyen_hpp_vault</adyen_hpp>
-                <adyen_apple_pay>adyen_apple_pay_vault</adyen_apple_pay>
-                <adyen_google_pay>adyen_google_pay_vault</adyen_google_pay>
+                <cardconnect_cc>cardconnect_cc_vault</cardconnect_cc>
+                <cardconnect_hpp>cardconnect_hpp_vault</cardconnect_hpp>
+                <cardconnect_apple_pay>cardconnect_apple_pay_vault</cardconnect_apple_pay>
+                <cardconnect_google_pay>cardconnect_google_pay_vault</cardconnect_google_pay>
             </third_party_payment>
         </swarming_subscribepro>
         <payment>
-            <adyen_google_pay>
+            <cardconnect_google_pay>
                 <can_use_internal>1</can_use_internal>
-            </adyen_google_pay>
-            <adyen_apple_pay>
+            </cardconnect_google_pay>
+            <cardconnect_apple_pay>
                 <can_use_internal>1</can_use_internal>
-            </adyen_apple_pay>
-            <adyen_hpp>
+            </cardconnect_apple_pay>
+            <cardconnect_hpp>
                 <can_use_internal>1</can_use_internal>
-            </adyen_hpp>
+            </cardconnect_hpp>
         </payment>
     </default>
 </config>

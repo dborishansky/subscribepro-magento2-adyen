@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Swarming\SubscribeProAdyen\Observer\Payment;
+namespace Rightpoint\SubscriptionsExternalVault\Observer\Payment;
 
 use Magento\Vault\Api\Data\PaymentTokenInterface;
+use Brsw\CardConnect\Model\Ui\ConfigProvider;
 
-class ApplePayTokenAssigner extends TokenAssigner
+class CardConnectHppTokenAssigner extends TokenAssigner
 {
     /**
      * @param string $paymentMethodToken
@@ -19,7 +20,7 @@ class ApplePayTokenAssigner extends TokenAssigner
     ): ?PaymentTokenInterface {
         return $this->paymentTokenManagement->getByGatewayToken(
             $paymentMethodToken,
-            'adyen_apple_pay',
+            ConfigProvider::CODE,
             $customerId
         );
     }

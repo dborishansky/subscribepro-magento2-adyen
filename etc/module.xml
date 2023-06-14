@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Swarming_SubscribeProAdyen">
+    <module name="Rightpoint_SubscriptionsExternalVault">
         <sequence>
             <module name="Swarming_SubscribePro"/>
-            <module name="Adyen_Payment"/>
+            <module name="Brsw_CardConnect"/>
+            <module name="SomethingDigital_CardConnect"/>
         </sequence>
     </module>
 </config>

@@ -3,19 +3,7 @@
     <body>
         <referenceBlock name="order_create_billing_form">
             <action method="setMethodFormTemplate">
-                <argument name="method" xsi:type="string">adyen_apple_pay_vault</argument>
-                <argument name="template" xsi:type="string">Magento_Vault::form/vault.phtml</argument>
-            </action>
-        </referenceBlock>
-        <referenceBlock name="order_create_billing_form">
-            <action method="setMethodFormTemplate">
-                <argument name="method" xsi:type="string">adyen_google_pay_vault</argument>
-                <argument name="template" xsi:type="string">Magento_Vault::form/vault.phtml</argument>
-            </action>
-        </referenceBlock>
-        <referenceBlock name="order_create_billing_form">
-            <action method="setMethodFormTemplate">
-                <argument name="method" xsi:type="string">adyen_hpp_vault</argument>
+                <argument name="method" xsi:type="string">cardconnect_hpp_vault</argument>
                 <argument name="template" xsi:type="string">Magento_Vault::form/vault.phtml</argument>
             </action>
         </referenceBlock>
